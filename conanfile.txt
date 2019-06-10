@@ -1,0 +1,13 @@
+[requires]
+# qt/5.12.3@bincrafters/stable
+sdl2/2.0.9@bincrafters/stable
+
+[generators]
+cmake
+
+[options]
+#qt:qtquickcontrols2=True
+#qt:qtmultimedia=True
+
+[imports]
+bin, *.dll -> bin
