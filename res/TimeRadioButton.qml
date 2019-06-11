@@ -46,8 +46,21 @@ RadioButton {
             color: checked ? "#888" : "#424242"
         }
 
-        DropShadow {
+        InnerShadow {
+            id: innerShadow
             source: backgroundItem
+            anchors.fill: source
+            horizontalOffset: -2
+            verticalOffset: 2
+            radius: backgroundItem.radius
+            antialiasing: true
+            samples: 16
+            smooth: true
+            color: checked ? "#999" : "#666"
+        }
+
+        DropShadow {
+            source: innerShadow
             anchors.fill: source
             horizontalOffset: 3
             verticalOffset: 3
