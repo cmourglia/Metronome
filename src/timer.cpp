@@ -39,6 +39,8 @@ void timerLoop(Timer* timer) {
 
     TimePoint t0 = Clock::now();
 
+    bool play = true;
+
     int currentSubdiv = 0;
     int tick = 0;
 
@@ -46,7 +48,13 @@ void timerLoop(Timer* timer) {
         TimePoint t1 = Clock::now();
 
         const std::chrono::duration<double> dt = t1 - t0;
+
         if (dt.count() >= s) {
+            play = true;
+        }
+
+        if (play) {
+            play = false;
             if (timer->subdiv() != Subdiv::Shuffle || currentSubdiv != 1) {
                 timer->playHihat();
             }
